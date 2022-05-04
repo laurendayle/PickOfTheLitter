@@ -1,0 +1,1 @@
+exports.animals = require('./animals');
