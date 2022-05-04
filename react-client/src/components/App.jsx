@@ -5,6 +5,8 @@ import PetsList from './PetsList.jsx';
 import Search from './Search.jsx';
 import { filter } from '../utils/filter';
 import { fetchList } from '../utils/fetchList';
+import CssBaseline from '@mui/material/CssBaseline';
+
 
 const App = () => {
 
@@ -47,27 +49,19 @@ const App = () => {
     return <div>Loading...</div>;
   } else {
     return (
-      <div id="app-container" className="container">
+      <div id="app-container">
 
-      <div id="navbar-main" className="bg-lime-900 h-10">
+      <div id="navbar-main">
+        <img id="logo" src="assets/mvp-logo-1.jpg" height="40" width="40" alt="" />
         <span>FindFido</span>
       </div>
 
-      <div className="flex">
-        <div id="search-col-main" className="w-60 h-full shadow-md bg-white px-1">
-          <Search
-            setFilters={setFilters}
-            search={search}
-          />
-        </div>
-
-        <div id="pets-list-main" className="">
-          <PetsList pets={filteredList.length > 0 ? filteredList : petsList}/>
-        </div>
+      <div id="main-app-container">
+        <Search setFilters={setFilters} search={search} />
+        <PetsList pets={filteredList.length > 0 ? filteredList : petsList}/>
       </div>
     </div>
     )
   }
 }
-
 export default App;

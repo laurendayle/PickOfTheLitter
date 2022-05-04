@@ -13,14 +13,14 @@ const Search = (props) => {
   const environments = [["Good with Children", "children"], ["Good with Cats","cats"], ["Good with Dogs", "dogs"]];
 
   return (
-    <div id="search-bar" >
-      <p>Filters</p>
-      <div>
+    <div id="search-bar">
+      <span id="search-bar-title">Filters</span>
+      {/* <div className="relative">
         <input name="search-input" type="text" placeholder="Search" />
-      </div>
+      </div> */}
 
+      <div className="filter-label">Species</div>
       <div className="filter-species filter-div">
-        <div>Species</div>
         {species.map((val, i) => (
           <span className={`${val}_div`} key={JSON.stringify(val)}>
             <FormControlLabel control={ <Checkbox  name={val} id={`species.${val}`} size="small" onChange={(e) => props.setFilters(e.target.id)}/> } label={val}/>
@@ -28,8 +28,8 @@ const Search = (props) => {
         ))}
       </div>
 
+      <div className="filter-label">Gender</div>
       <div className="filter-gender filter-div">
-        <div>Gender</div>
         {gender.map((val, i) => (
           <span className={`${val}_div`} key={JSON.stringify(val)}>
             <FormControlLabel control={ <Checkbox  name={val} id={`gender.${val}`} size="small" onChange={(e) => props.setFilters(e.target.id)}/> } label={val}/>
@@ -37,8 +37,8 @@ const Search = (props) => {
         ))}
       </div>
 
+      <div className="filter-label">Age</div>
       <div className="filter-age filter-div">
-        <div>Age</div>
         {age.map((val, i) => (
           <span className={`${val}_div`} key={JSON.stringify(val)}>
             <FormControlLabel control={ <Checkbox  name={val} id={`age.${val}`} size="small" onChange={(e) => props.setFilters(e.target.id)}/> } label={val}/>
@@ -46,8 +46,8 @@ const Search = (props) => {
         ))}
       </div>
 
+      <div className="filter-label">Size</div>
       <div className="filter-size filter-div">
-        <div>Size</div>
         {size.map((val, i) => (
           <span className={`${val}_div`} key={JSON.stringify(val)}>
             <FormControlLabel control={ <Checkbox  name={val} id={`size.${val}`} size="small" onChange={(e) => props.setFilters(e.target.id)}/> } label={val}/>
@@ -55,8 +55,8 @@ const Search = (props) => {
         ))}
       </div>
 
-      <div className="filter-attributes filter-div">
-        <div>Additional Needs:</div>
+      <div className="filter-label">Additional Needs</div>
+      <div className="filter-attributes filter-div relative">
         {attributes.map((val, i) => (
           <span className={`${val}_div`} key={JSON.stringify(val)}>
             <FormControlLabel control={ <Checkbox  name={val[0]} id={`attributes.${val}`} size="small" onChange={(e) => props.setFilters(e.target.id)}/> } label={val[0]}/>
@@ -65,17 +65,17 @@ const Search = (props) => {
         ))}
       </div>
 
-      <div className="filter-environments filter-div">
+      <div className="filter-environments filter-div relative">
         {environments.map((val, i) => (
           <span className={`${val[0]}_div`} key={JSON.stringify(val)}>
             <FormControlLabel control={ <Checkbox  name={val[0]} id={`environments.${val}`} size="small" onChange={(e) => props.setFilters(e.target.id)}/> } label={val[0]}/>
           </span>
         ))}
       </div>
-
+{/*
       <div className="submit-filters">
         <button onClick={(e) => props.search(e)}>Search Pets</button>
-      </div>
+      </div> */}
     </div>
   )
 }

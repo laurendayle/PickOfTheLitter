@@ -5,10 +5,10 @@ const PetsList = (props) => {
 
 
   return (
-    <div id="pets-list-container" className="">
-      <div>Displaying {props.pets.length} results</div>
+    <div id="pets-list-container">
+      <span>Displaying {props.pets.length} results</span>
 
-      <div className="">
+      <div direction="row" id="pets-list-inner-container">
         {props.pets.map((pet) => (
           <div className="pet-tile" key={JSON.stringify(pet)}>
             <Pet pet={pet}/>
