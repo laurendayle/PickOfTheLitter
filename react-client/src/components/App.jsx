@@ -6,6 +6,7 @@ import Search from './Search.jsx';
 import { filter } from '../utils/filter';
 import { fetchList } from '../utils/fetchList';
 import CssBaseline from '@mui/material/CssBaseline';
+import navBarImg from '../assets/mvp-logo-1.jpg';
 
 
 const App = () => {
@@ -49,11 +50,13 @@ const App = () => {
     return <div>Loading...</div>;
   } else {
     return (
+      <>
+      <CssBaseline/>
       <div id="app-container">
 
       <div id="navbar-main">
-        <img id="logo" src="assets/mvp-logo-1.jpg" height="40" width="40" alt="" />
-        <span>FindFido</span>
+        <img id="logo" src={navBarImg} height="42" width="42" alt="" />
+        <span id="navbar-title">Pick of the Litter</span>
       </div>
 
       <div id="main-app-container">
@@ -61,6 +64,7 @@ const App = () => {
         <PetsList pets={filteredList.length > 0 ? filteredList : petsList}/>
       </div>
     </div>
+    </>
     )
   }
 }

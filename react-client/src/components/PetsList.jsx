@@ -6,7 +6,7 @@ const PetsList = (props) => {
 
   return (
     <div id="pets-list-container">
-      <span>Displaying {props.pets.length} results</span>
+      <span style={{float: "right", fontWeight: "bold"}} id="display-count">Displaying {props.pets.length} results</span>
 
       <div direction="row" id="pets-list-inner-container">
         {props.pets.map((pet) => (

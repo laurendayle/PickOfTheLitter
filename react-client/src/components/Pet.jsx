@@ -1,6 +1,6 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+import Chip from '@mui/material/Chip';
+import placeholderImg from '../assets/placeholder.jpg';
 
 const Pet = ({ pet }) => {
   const listBreeds = (breeds) => {
@@ -12,44 +12,50 @@ const Pet = ({ pet }) => {
   };
 
   return (
-    <Card className="pet-card-container">
-      {/* <CardContent> */}
-        <div className="pet-image-container">
-        <a href={pet.url ? pet.url : ""} target="_blank" className="card-title" > {pet.name} </a>
-
-          {pet.photos.length ? ( <img className="pet-image" height="150" width="150" src={`${pet.photos[0]["medium"]}`} alt=""/>) : (<></>)}
-
-
+    <div className="flip-card">
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          { pet.photos.length ? <img className="pet-image" src={`${pet.primary_photo_cropped["medium"]}`} alt=""/> : <img className="pet-image" src={ placeholderImg } />}
+          <a href={pet.url} className="card-title" > {pet.name} </a>
+          <p style={{margin: "0"}}> {pet.gender} &#9642; {pet.contact.address.city ? pet.contact.address.city : "" }, {pet.contact.address.state ? pet.contact.address.state : ""}, {pet.contact.address.country ? pet.contact.address.country : ""}  &#9642; {listBreeds(pet.breeds)} </p>
 
         </div>
+        <div className="flip-card-back">
 
-        <div>
-          {pet.species}
-          <br />
-          {pet.gender}
-          <br />
-          {pet.size}
-          <br />
-          {listBreeds(pet.breeds)}
-        </div>
-
-        <div id="pet-contactInfo">
-          <p>
-            Interested in adding me to your family?
-            <br />
-            Have your people get with my people:
+          <p className="card-title">
+            <a href={pet.url} className="card-title"> {pet.name} </a>
           </p>
 
-          <p>
-            {pet.contact.email ? pet.contact.email : ""}
-            {pet.contact.phone ? pet.contact.phone : ""}
-            {pet.contact.address.city ? pet.contact.address.city : ""},
-            {pet.contact.address.state ? pet.contact.address.state : ""},
+          <div style={{textAlign: "left"}}>
+            <p><b>About me:</b><br /> {pet.description} </p>
+            <div style={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap" }}>
+            {!pet.tags.length ? "" : pet.tags.map((tag) => (
+              <Chip
+                style={{margin: "3px"}}
+                key={JSON.stringify(tag)}
+                label={tag}
+                variant="outlined"
+              />
+            ))}
+            </div>
+
+          </div>
+
+          <div style={{fontSize: "0.8em", bottom: "1%"}} id="pet-contactInfo">
+          <p><b>Interested in adding me to your family? <br /> Have your people get with my people:</b></p>
+
+          <p style={{overflowWrap: "break-word"}}>
+            {pet.contact.email ? pet.contact.email : ""}<br />
+            {pet.contact.phone ? pet.contact.phone : ""}<br />
+            {pet.contact.address.city ? pet.contact.address.city : ""},&#160;
+            {pet.contact.address.state ? pet.contact.address.state : ""},&#160;
             {pet.contact.address.country ? pet.contact.address.country : ""}
           </p>
         </div>
-      {/* </CardContent> */}
-    </Card>
+        </div>
+      </div>
+      </div>
+
   );
 };
 
