@@ -1,6 +1,6 @@
 # Pick of the Litter
 
-`Pick Of The Litter` is a single-page PetFinder clone built using the [PetFinder API](https://www.petfinder.com/developers/), Node.js, Express and MongoDB. The application allows for convenient viewing of adoptable pet information without having to navigate to another page.
+`Pick Of The Litter` is a single-page PetFinder clone built using the [PetFinder API](https://www.petfinder.com/developers/), React, Node.js, Express and MongoDB. The application allows for convenient viewing of adoptable pet information without having to navigate to another page.
 
 <a href="url"><p align="center"><img src="https://github.com/laurendayle/PickOfTheLitter/blob/master/mvp-landingpage.jpg" alt="" height="350" width="600"/></p></a>
 
